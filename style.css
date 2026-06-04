@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(135deg, rgb(157, 119, 157), rgb(214, 100, 79));
+}
+h1{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 3.5em;
+    font-weight: 300;
+    font-family: cursive;
+}
+/* Container with input and main content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Search bar */
+#searchInput{
+    height: 40px;
+    width: 350px;
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid #0f0f0f;
+}
+#searchInput:hover{
+    border: 2px solid black;
+}
+
+/* Main container for user cards */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Cards */
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 10px 5px;
+    border: 1px solid #0f0f0f;
+    height: 250px;
+    width: 200px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    border-radius: 0 0 10px 10px;
+    z-index: 0;
+}
+.card h3 {
+    position: relative;
+    z-index: 1;
+}
+.card h3, .card p {
+    color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+.card:hover{
+    transform: scale(1.1);
+}
+
+/*Pop-up*/
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+    z-index: 5;
+}
+.pg{
+    height: 500px;
+    width: 400px;
+    color: white;
+    border: 2px solid black;
+    background-color: rgb(9, 13, 57);
+    position: fixed;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0 4px 50px rgba(73, 6, 242, 0.3);
+    overflow: auto;
+}
+.pg span{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 30px;
+    width: 40px;
+    border-radius: 0 20px 0 20px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+.pg span:hover{
+    background-color: rgba(255, 0, 0, 1);
+    transform: scale(1.01);
+}
+.pg h2{
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.pg p{
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.pg ul{
+    list-style: none;
+    font-size: 1.2em;
+    border: 1px solid black;
+    height: 275px;
+    width: 350px;
+    padding: 20px;
+    background-color: rgba(231, 91, 236, 0.773);
+    border-radius: 10px;
+}
+.pg ul h3{
+    padding: 10px;
+    /* border-bottom: 1px solid black; */
+}
+.pg ul li{
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+}
+
+/* Responsive design for smaller screens */
+
+@media screen and (max-width: 600px){
+    #searchInput{
+        height: 20px;
+        width: 100px;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pg {
+        width: 90vw;
+        height: 80vh;
+    }
+    .pg ul {
+        width: 100%;
+    }
+}
