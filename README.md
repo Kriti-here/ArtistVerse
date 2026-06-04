@@ -42,7 +42,7 @@ artist-verse/
 
 ## 🌐 Live Demo
 
-[View it here](https://Kriti-here.github.io/artist-verse)
+[View it here](https://kriti-here.github.io/ArtistVerse)
 
 ---
 
